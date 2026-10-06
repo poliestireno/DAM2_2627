@@ -99,13 +99,27 @@ console.log(numeros.reduce(miMax,Number.MIN_VALUE));
 const marcas_coches2 = ["bmw","bmw","merdeces","Audi","Audi","toyota","Audi"];
 
 
-marcas_coches2.reduce(ocurrencias,{});
+const marcas_coches3 = marcas_coches2.reduce(ocurrencias,{});
 
 function ocurrencias(acumulado,actual)
 {
-    // acumulado incial {}
-    // actual bmw
-    // {bmw:1}
-    if seguir
-    acumulado[actual]= acumulado[actual]+1;
+
+    if (acumulado[actual]) // si el objeto contiene la propiedad o atributo, sumamos 1 -> objeto.bmw++ <-> objeto['bmw']++
+        acumulado[actual]++; // esto es lo mismo que escribir objeto.propiedad = objeto.propiedad + 1
+    else // si no existe la propiedad
+        acumulado[actual] = 1; // se inicia con valor 1
+    return acumulado; // retornamos el objeto '{}' inicial siempre, por ejemplo, se va acumuando tal que:
+    /*
+        acumulado                             actual
+        it1:{}                                bmw
+        it2:{bmw:1}                           bmw
+        it3:{bmw:2}                           merdeces
+        it4:{bmw:2,merdeces:1}                Audi
+        it5:{bmw:2,merdeces:1,Audi:1}         Audi
+        it6:{bmw:2,merdeces:1,Audi:2}         Toyota
+        it7:{bmw:2,merdeces:1,Audi:2,Toyota:1}Audi
+        it8:{bmw:2,merdeces:1,Audi:3,Toyota:1}
+    */
 }
+
+console.log(marcas_coches3);

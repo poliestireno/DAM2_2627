@@ -123,3 +123,5 @@ function ocurrencias(acumulado,actual)
 }
 
 console.log(marcas_coches3);
+
+

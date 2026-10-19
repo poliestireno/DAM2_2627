@@ -18,7 +18,8 @@ export function calcularPrecio(producto)
 }
 
 
-export const pedidoFamiliar = new Promise((resolve, reject) => 
+export const pedidoFamiliar
+ = new Promise((resolve, reject) => 
 {
     const hayComida = false;
     if (hayComida)
@@ -30,3 +31,18 @@ export const pedidoFamiliar = new Promise((resolve, reject) =>
         reject("no hay comida");
     }
 });
+
+export async function pedidoFamiliar2() {
+  try {
+    const mensaje = await pedidoFamiliar;
+    console.log("✅ " + mensaje);
+  } catch (error) {
+    console.log("❌ " + error);
+  }
+}
+
+export async function llamarAJson() 
+{
+    const res = await fetch ("https://jsonplaceholder.typicode.com/posts/1");    
+    return await res.json();
+}

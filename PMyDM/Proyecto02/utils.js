@@ -19,9 +19,9 @@ export function calcularPrecio(producto)
 
 
 export const pedidoFamiliar
- = new Promise((resolve, reject) => 
+ = new Promise((resolve, reject) =>
 {
-    const hayComida = false;
+    const hayComida = true;
     if (hayComida)
     {
         resolve("pedido en curso");
@@ -46,3 +46,48 @@ export async function llamarAJson()
     const res = await fetch ("https://jsonplaceholder.typicode.com/posts/1");    
     return await res.json();
 }
+
+
+
+
+
+
+
+
+
+ export async function funcionSerFutbolista() 
+ {
+    const serFutbolista = new Promise ((resolve,reject) => 
+    {
+        const serCrack = true;
+        const tenerPiernas = true;
+        const tenerPadrino = true;
+        if ( serCrack && tenerPadrino && tenerPiernas )
+        {
+            resolve ("Eres futbolista pofesional");
+        }
+        else
+        {
+            reject ("Eres un mindundi o Don Naide");
+        }
+    }
+    );
+    try
+    {
+        const men = await serFutbolista;
+        console.log(men);
+    }
+    catch (ex)
+    {
+        console.log(ex);
+    }
+ }
+export async function pedirPost()
+{
+    const response = await fetch("https://jsonplaceholder.typicode.com/users/1");
+    const usuarios = await response.json();
+    //console.log("usu dentro:"+usuarios);
+    return usuarios;
+}
+
+
